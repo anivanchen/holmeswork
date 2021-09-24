@@ -4,8 +4,8 @@ function sendEmail(data) {
   const nodemailer = require('nodemailer');
 
   var mailOptions = {
-    from: 'holmesworkchecker <ichenscripts@gmail.com>',
-    bcc: users.mailingList,
+    from: 'holmeswork <ichenscripts@gmail.com>',
+    cc: users.mailingList,
     subject: 'Homework From Holmes',
     text: `${data}`
   };

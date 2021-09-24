@@ -7,6 +7,11 @@ function getWebData() {
     .then((response) => {
       let $ = cheerio.load(response.data);
       var homework = $('h1:first').nextUntil('hr').text();
+
+      if (homework.includes('Bring your paper results to class.')) {
+        homework += '\nREMEMBER TO PRINT YOUR HOMEWORK'
+      }
+      
       const emailer = require('./emailer');
       emailer.sendEmail(homework);
     }).catch(function(error) {
